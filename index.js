@@ -7,8 +7,19 @@ import config from "./src/config/index.js";
 import routes from "./src/routes/index.js";
 
 const app = express();
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://special-birthday-present.vercel.app",
+];
+
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
