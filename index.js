@@ -10,7 +10,7 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "https://special-birthday-present.vercel.app",
-  "https://mgkalaykay-birthday.vercel.app",
+  "https://mgkalaylay-birthday.vercel.app",
 ];
 
 const corsOptions = {
